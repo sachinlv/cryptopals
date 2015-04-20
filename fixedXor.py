@@ -8,13 +8,14 @@ outputexpected = '746865206b696420646f6e277420706c6179'
 
 
 def fixedxor(str1, str2):
-	hextoascii = str1.decode("hex")
-
-	ip = binascii.unhexlify(str1)
-	xorip = binascii.unhexlify(str2)
-  	out = binascii.b2a_uu(ip ^ xorip)
-  	print(out)
-  	return out
+	hex2int1 = int(str1,16)
+	hex2int2 = int(str2, 16)
+	
+	outint = hex2int1 ^ hex2int2	
+	out = str(hex(outint))
+	out = out.split('x')[1]
+	
+	return out[:-1]
 
 
 
@@ -26,6 +27,3 @@ if __name__ == '__main__':
 		print('success')
 	else:
 		print('failure...!!!')
-
-
-	
